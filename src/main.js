@@ -13,10 +13,10 @@ const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routers: [
-    {
+    /*{
       path: '/first',
-      component: 
-    }
+      component:
+    }*/
   ]
 });
 
