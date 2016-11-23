@@ -23,7 +23,18 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /\.less$/,
+        loader: 'style!css!less'
+      },
+      {
         test: /\.(png|jpg|gif|svg)$/,
+        loader: 'url-loader',
+        options: {
+          name: '[name].[ext]?[hash]'
+        }
+      },
+      {
+        test: /\.mp3$/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
@@ -52,12 +63,12 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
+    /*new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       compress: {
         warnings: false
       }
-    }),
+    }),*/
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
